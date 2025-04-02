@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+</head>
+<body>
+  <h1>Bienvenido, <%= user.username %></h1>
+  <p>Rol: <%= user.role %></p>
+  
+  <h2>Operaciones Disponibles</h2>
+  <ul>
+    <li><a href="/crud">Listar Items</a></li>
+    <% if (user.role === 'Admin') { %>
+      <li><a href="/crud/create">Crear Item</a></li>
+      <li><a href="/crud/update">Actualizar Item</a></li>
+      <li><a href="/crud/delete">Eliminar Item</a></li>
+    <% } else { %>
+      <li>Operaciones de creación, actualización y eliminación están restringidas para el rol Editor.</li>
+    <% } %>
+  </ul>
+</body>
+</html>
